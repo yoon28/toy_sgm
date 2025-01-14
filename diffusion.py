@@ -73,15 +73,15 @@ class Diffuser:
             return x
 
 def main():
-    device = 'cpu'
+    device = 'cuda'
     n_samples = 3_000
     X0 = load_gmm_samples(n_samples=n_samples)
 
     # plt.scatter(X0[:, 0], X0[:, 1])
     # plt.show()
 
-    net = DenoiseModel(nfeatures=2, nblocks=4)
-    model = Diffuser(neural_net=net)
+    net = DenoiseModel(nfeatures=2, nblocks=4).to(device)
+    model = Diffuser(neural_net=net, device=device)
 
     nepochs = 300
     batch_size = 300

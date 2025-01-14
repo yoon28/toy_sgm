@@ -12,7 +12,7 @@ class DenoiseBlock(nn.Module):
         return x
 
 class DenoiseModel(nn.Module):
-    def __init__(self, nfeatures: int, nblocks: int = 2, nunits: int = 64, device='cpu'):
+    def __init__(self, nfeatures: int, nblocks: int = 2, nunits: int = 64):
         super(DenoiseModel, self).__init__()
         self.inblock = nn.Linear(nfeatures + 1, nunits)
         self.midblocks = nn.ModuleList([DenoiseBlock(nunits) for _ in range(nblocks)])
