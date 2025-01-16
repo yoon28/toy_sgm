@@ -76,6 +76,7 @@ def main():
     device = 'cuda'
     n_samples = 3_000
     X0 = load_gmm_samples(n_samples=n_samples)
+    #X0 = load_swiss_samples(n_samples=n_samples)
 
     # plt.scatter(X0[:, 0], X0[:, 1])
     # plt.show()
@@ -123,7 +124,7 @@ def main():
         return fig,
     fig = plt.figure()
     anime = animation.FuncAnimation(fig, draw_frame, frames=40, interval=20, blit=True)
-    anime.save('swissroll_generation.mp4', fps=10)
+    anime.save('diffusion.mp4', fps=10)
 
 if __name__ == "__main__":
     main()

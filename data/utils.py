@@ -2,8 +2,8 @@ from sklearn.datasets import make_swiss_roll
 import torch
 import numpy as np
 
-def load_swiss_samples(n_samples=3_000):
-    x, _ = make_swiss_roll(n_samples=n_samples, noise=0.5)
+def load_swiss_samples(n_samples=3_000, random_seed=None):
+    x, _ = make_swiss_roll(n_samples=n_samples, noise=0.5, random_state=random_seed)
 
     # Make two-dimensional to easen visualization
     x = x[:, [0, 2]]
